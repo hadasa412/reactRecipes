@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Dialog } from '@mui/material';
-import AddRecipe from './AddRecipe';
+
+import RecipeForm from './RecipeForm';
 
 const AddRecipeButton = () => {
     const [open, setOpen] = useState(false);
@@ -32,7 +33,7 @@ const AddRecipeButton = () => {
             
             </Button>
             <Dialog open={open} onClose={handleClose}>
-                <AddRecipe onClose={handleClose} />
+                <RecipeForm onClose={handleClose} />
             </Dialog>
 
         </>

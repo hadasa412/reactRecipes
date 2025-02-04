@@ -3,7 +3,7 @@ import Home from "./components/Home"
 import About from "./components/About"
 import AppLayout from "./components/AppLayout"
 import { UserProvider } from "./UserContext"
-import AddRecipe from "./components/AddRecipe"
+
 import { Navigate, createBrowserRouter } from "react-router-dom"
 import AddRecipeButton from "./components/AddRecipeButton"
 import HomePage from "./components/HomePage"
@@ -28,10 +28,6 @@ export const myRouter = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login />,
-            },
-            {
-                path: '/add-recipe',
-                element: <AddRecipe />,
             },
             {
                 path: '/update-user',
