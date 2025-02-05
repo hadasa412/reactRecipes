@@ -18,8 +18,8 @@ const RecipeForm: React.FC<RecipeFormProps> = observer((onClose) => {
     if (!userId) {
       console.error("❌ שגיאה: המשתמש לא מחובר, userId חסר.");
       return;    }
-    const products=ingredients;
-    const dataWithUserId = { title, description,products, ingredients, instructions, userId };
+      const products = ingredients.map(item => item.ingredient);
+      const dataWithUserId = { title, description, products, ingredients, instructions, userId };
     axios.post("http://localhost:8787/api/recipes/", dataWithUserId, {
       headers: { 'user-id': userId },    })
     .then(response => {
@@ -30,7 +30,7 @@ const RecipeForm: React.FC<RecipeFormProps> = observer((onClose) => {
   };
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value);
   const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => setDescription(e.target.value);
-  const handleIngredientsChange = (index: number, e:any) => {
+  const handleIngredientsChange = (index: number, e: React.ChangeEvent<HTMLInputElement>) => {
     const updatedIngredients = [...ingredients];
     updatedIngredients[index].ingredient = e.target.value;
     setIngredients(updatedIngredients);

@@ -38,7 +38,7 @@ const UpdateUser: React.FC<{ open: boolean; setOpen: (open: boolean) => void }> 
           type: "UPDATE",
           payload: { ...updatedUser },
         });
-        setOpen(false); // סוגר את המודל אחרי שמירה
+        setOpen(false); 
       } else {
         setError("לא התקבלו פרטי משתמש.");
       }
@@ -50,12 +50,12 @@ const UpdateUser: React.FC<{ open: boolean; setOpen: (open: boolean) => void }> 
 
   return (
     <>
-      {/* כפתור פתיחת המודל */}
+     
       <Button variant="contained" color="primary" onClick={() => setOpen(true)}>
         עדכון
       </Button>
 
-      {/* Modal עם טופס עידכון */}
+    
       <Modal open={open} onClose={() => setOpen(false)}>
         <Box
           sx={{

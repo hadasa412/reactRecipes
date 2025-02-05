@@ -5,7 +5,7 @@ export const recipeSchema = yup.object().shape({
   description: yup.string().required("יש להזין תיאור"),
   ingredients: yup
     .array()
-    .of(yup.string().nullable())  // מאפשר גם ערכים ריקים
+    .of(yup.string().nullable())  
     .min(1, "יש להזין לפחות מרכיב אחד")
     .required("יש להזין רשימת מרכיבים"),
   instructions: yup.string().required("יש להזין הוראות הכנה"),

@@ -11,7 +11,6 @@ const AddRecipeButton = () => {
     };
 
     const handleClose = () => {
-        console.log('סוגרים את הדיאלוג');
         setOpen(false);
     };
     

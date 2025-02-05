@@ -2,26 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import recipeStore from '../stores/RecipeStore';
 import { Box, Typography, Card, CardContent, List, ListItem, ListItemText, Grid, Divider, Button, Modal } from '@mui/material';
-import RecipeForm from './RecipeForm'; 
+import RecipeForm from './RecipeForm';
 const Recipes = observer(() => {
     const [selectedRecipe, setSelectedRecipe] = useState<any>(null);
-
     useEffect(() => {
         recipeStore.getRecipes();
     }, []);
-
     useEffect(() => {
         if (recipeStore.recipes.length > 0 && !selectedRecipe) {
             setSelectedRecipe(recipeStore.recipes[0]);
         }
     }, [recipeStore.recipes]);
-
     return (
         <Box sx={{ width: '100%', minHeight: '100vh', padding: '20px', direction: 'rtl', backgroundColor: '#f5f5f5' }}>
             <Typography variant="h4" component="h1" sx={{ marginBottom: '30px', color: '#9c27b0', textAlign: 'center', fontWeight: 'bold' }}>
                 (:המתכונים שלנו
             </Typography>
-
             <Grid container spacing={3}>
                 <Grid item xs={12} md={4}>
                     <Card sx={{ height: '100%' }}>
@@ -52,7 +48,6 @@ const Recipes = observer(() => {
                         </List>
                     </Card>
                 </Grid>
-
                 <Grid item xs={12} md={8}>
                     {selectedRecipe && (
                         <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', borderRadius: '12px' }}>
@@ -65,8 +60,7 @@ const Recipes = observer(() => {
                                         color: '#9c27b0',
                                         fontWeight: 'bold',
                                         marginBottom: '16px',
-                                    }}
-                                >
+                                    }}                                >
                                     {selectedRecipe.title}
                                 </Typography>
 
@@ -75,7 +69,6 @@ const Recipes = observer(() => {
                                         {selectedRecipe.description}
                                     </Typography>
                                 )}
-
                                 {selectedRecipe.ingredients && (
                                     <>
                                         <Divider sx={{ margin: '16px 0' }} />
@@ -87,7 +80,6 @@ const Recipes = observer(() => {
                                         </Typography>
                                     </>
                                 )}
-
                                 {selectedRecipe.instructions && (
                                     <>
                                         <Divider sx={{ margin: '16px 0' }} />
@@ -101,13 +93,8 @@ const Recipes = observer(() => {
                                 )}
                             </CardContent>
                         </Card>
-                    )}
-                </Grid>
+                    )}</Grid>
             </Grid>
-
-        
-        </Box>
-    );
+        </Box>);
 });
-
 export default Recipes;
